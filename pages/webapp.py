@@ -58,7 +58,7 @@ outcome=response.json()
 stations=pd.DataFrame.from_dict(outcome['stations'])
 summer_stations=pd.DataFrame.from_dict(outcome['summer_stations'])
 
-st.header("These are divvy stations over the next ")
+st.header("These are divvy stations' availability on the selected date")
 px.set_mapbox_access_token('pk.eyJ1Ijoia3Jva3JvYiIsImEiOiJja2YzcmcyNDkwNXVpMnRtZGwxb2MzNWtvIn0.69leM_6Roh26Ju7Lqb2pwQ')
 fig=px.scatter_mapbox(stations,
                       lat="lat", lon="lon",
@@ -67,7 +67,7 @@ fig=px.scatter_mapbox(stations,
                       hover_data=["name","departures","arrivals"],
                       color_discrete_sequence=px.colors.qualitative.G10,
                       zoom=10,
-                      height=800)
+                      height=770)
 st.plotly_chart(fig)
 st.subheader('All stations seem available? \U0001F914')
 st.subheader('Who will \U0001F6B4 with this temperature? \U0001F976')
@@ -80,7 +80,7 @@ fig=px.scatter_mapbox(summer_stations,
                       hover_data=["name","departures","arrivals"],
                       color_discrete_sequence=px.colors.qualitative.G10,
                       zoom=10,
-                      height=800)
+                      height=770)
 st.plotly_chart(fig)
 st.subheader("We built have some 'rough' assumptions for capacity")
 st.subheader('But we might expect it to be tighter')
