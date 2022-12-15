@@ -20,6 +20,7 @@ st.markdown("## Weather")
 
 st.markdown("The better the weather, the nicer it is to ride a bike across the city. Not surprisingly, bikes traffic and temperature follow similar trends.")
 
+
 def get_station_data():
 
     path = os.environ.get("LOCAL_DATA_PATH_STATION")
@@ -27,6 +28,8 @@ def get_station_data():
     station_df = pd.read_csv(path)
 
     return station_df
+
+
 
 rides_df_daily=pd.read_csv("raw_data/rides_df_daily_2021.csv")
 rides_df_daily["date"]= pd.to_datetime(rides_df_daily["date"])
@@ -48,6 +51,7 @@ def timeframe_df(df,start_time,end_time):
     df_red = df_red[condition_2]
 
     return df_red
+
 
 
 def plot_rides_all_bis(start_time,end_time,df_divvy):
@@ -96,6 +100,50 @@ st.pyplot(fig0)
 
 #weather_metric_choice= ['temp', 'pressure', 'humidity', 'wind_speed', 'wind_deg','clouds_all']
 
+rides_df_daily=pd.read_csv("raw_data/rides_df_daily_2021.csv")
+rides_df_daily["date"]= pd.to_datetime(rides_df_daily["date"])
+
+avg_weather_df=pd.read_csv("raw_data/avg_temp.csv")
+avg_weather_df["date"]= pd.to_datetime(avg_weather_df["date"])
+rides_df_daily = rides_df_daily.merge(avg_weather_df, on="date", how="left")
+
+start_time = datetime.date(2021, 7, 1)
+end_time = datetime.date(2021, 12, 31)
+timevariable="date"
+weather_metric = "temp"
+
+
+condition_1 = rides_df_daily["date"] >= pd.to_datetime(start_time)
+condition_2 = rides_df_daily["date"] <= pd.to_datetime(end_time)
+
+df_red = rides_df_daily[condition_1]
+df_red = df_red[condition_2]
+
+#df_red["nb_rides"] = df_red["nb_rides"]/1000
+
+df_divvy_red = df_red.copy()
+
+df_divvy_red = df_divvy_red.set_index('date')
+
+rides_trend = seasonal_decompose(df_divvy_red['nb_rides'], model='additive')
+temp_trend = seasonal_decompose(df_divvy_red['temp'], model='additive')
+
+fig1, axA = plt.subplots()
+
+axA = sns.lineplot(rides_trend.trend, color=(43/255,140/255,190/255), legend=True)
+axB = axA.twinx()
+axB = sns.lineplot(temp_trend.trend, ax=axB, color=(222/255,45/255,38/255), legend=True)
+
+axA.set_xlabel('Time')
+axA.set_ylabel("Daily number of bike rides ('000s)", color=(43/255,140/255,190/255))
+axB.set_ylabel('Temperature (°c)', color=(222/255,45/255,38/255))
+
+
+#fig=plot_rides_all_bis(start_time,end_time, rides_df_daily)
+
+st.pyplot(fig1)
+
+
 st.markdown("## Temporality")
 
 st.markdown("Bikes traffic is overall higher on weekends than on weekdays.")
@@ -122,12 +170,12 @@ test_df = rides_df_daily.groupby(by="category")["nb_rides"].mean().reset_index()
 test_df["category"].replace({0:"weekdays",1:"weekends"},inplace=True)
 color =[(116/255,169/255,207/255),(5/255,112/255,176/255)]
 
-fig2, ax3 = plt.subplots()
-ax3 = sns.barplot(x=test_df["category"],y=test_df["nb_rides"], palette=color)
+fig2, ax1 = plt.subplots()
+ax1 = sns.barplot(x=test_df["category"],y=test_df["nb_rides"], palette=color)
 
-ax3.set_title('Average daily number of bike rides, weekdays vs weekends')
-ax3.set_xlabel('')
-ax3.set_ylabel("number of bike rides ('000s)")
+ax1.set_title('Average daily number of bike rides, weekdays vs weekends')
+ax1.set_xlabel('')
+ax1.set_ylabel("number of bike rides ('000s)")
 
 
 
@@ -155,6 +203,7 @@ ax4.set_xticks(range(0,24,2))
 ax4.legend()
 
 st.pyplot(fig3)
+
 
 st.markdown("## Spatial disparities")
 

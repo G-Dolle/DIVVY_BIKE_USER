@@ -1,5 +1,11 @@
 streamlit:
-	-@streamlit run app.py
+	-@streamlit run Hello.py
+
+streamlit webapp:
+	-@streamlit run pages/webapp.py
+
+streamlit reco:
+	-@streamlit run pages/reco.py
 
 install_requirements:
 	@pip install -r requirements.txt
