@@ -6,3 +6,4 @@ uvicorn
 datetime
 plotly
 matplotlib
+seaborn
