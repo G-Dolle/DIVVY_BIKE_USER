@@ -1,4 +1,7 @@
 streamlit:
+	-@streamlit run Hello.py
+
+streamlit webapp:
 	-@streamlit run pages/webapp.py
 
 streamlit reco:
