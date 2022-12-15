@@ -5,3 +5,5 @@ streamlit_folium
 uvicorn
 datetime
 plotly
+matplotlib
+seaborn

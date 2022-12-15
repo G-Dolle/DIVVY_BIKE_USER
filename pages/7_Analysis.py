@@ -8,7 +8,6 @@ import pandas as pd
 import datetime
 from streamlit_folium import folium_static
 import seaborn as sns
-from statsmodels.tsa.seasonal import seasonal_decompose
 
 st.set_page_config(page_title="Factors influencing bikes traffic",  layout="centered")
 
@@ -20,7 +19,7 @@ st.markdown("The better the weather, the nicer it is to ride a bike across the c
 
 def get_station_data():
 
-    path = os.environ.get("LOCAL_DATA_PATH_STATION")
+    path = "raw_data/station_API.csv"
 
     station_df = pd.read_csv(path)
 
