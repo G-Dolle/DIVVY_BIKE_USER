@@ -20,7 +20,6 @@ st.markdown("## Weather")
 
 st.markdown("The better the weather, the nicer it is to ride a bike across the city. Not surprisingly, bikes traffic and temperature follow similar trends.")
 
-
 def get_station_data():
 
     path = os.environ.get("LOCAL_DATA_PATH_STATION")
@@ -28,8 +27,6 @@ def get_station_data():
     station_df = pd.read_csv(path)
 
     return station_df
-
-
 
 rides_df_daily=pd.read_csv("raw_data/rides_df_daily_2021.csv")
 rides_df_daily["date"]= pd.to_datetime(rides_df_daily["date"])
@@ -51,7 +48,6 @@ def timeframe_df(df,start_time,end_time):
     df_red = df_red[condition_2]
 
     return df_red
-
 
 
 def plot_rides_all_bis(start_time,end_time,df_divvy):
@@ -89,7 +85,6 @@ ax0.set_yticks(range(0,40,10))
 
 st.pyplot(fig0)
 
-
 #scatter = plt.scatterplot(data = rides_df_daily, x="temp",y="nb_rides")
 
 
@@ -100,7 +95,6 @@ st.pyplot(fig0)
 #weather_metric="temp"
 
 #weather_metric_choice= ['temp', 'pressure', 'humidity', 'wind_speed', 'wind_deg','clouds_all']
-
 
 st.markdown("## Temporality")
 
@@ -161,7 +155,6 @@ ax4.set_xticks(range(0,24,2))
 ax4.legend()
 
 st.pyplot(fig3)
-
 
 st.markdown("## Spatial disparities")
 
