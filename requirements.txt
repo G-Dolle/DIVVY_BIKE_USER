@@ -5,3 +5,6 @@ streamlit_folium
 uvicorn
 datetime
 plotly
+statsmodel
+matplotlib
+
