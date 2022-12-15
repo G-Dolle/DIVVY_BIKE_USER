@@ -21,7 +21,7 @@ st.markdown("The better the weather, the nicer it is to ride a bike across the c
 
 def get_station_data():
 
-    path = os.environ.get("LOCAL_DATA_PATH_STATION")
+    path = "raw_data/station_API.csv"
 
     station_df = pd.read_csv(path)
 
