@@ -2,15 +2,17 @@ import streamlit as st
 import pandas as pd
 import requests
 import datetime
-import folium
-from streamlit_folium import folium_static
-import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 
+st.set_page_config(
+    page_title="Web app",
+    page_icon="🌍",
+    layout="centered",  # wide
+    initial_sidebar_state="auto")
 
 #Title of the app
-st.title("THIS APP AVAILABILITY OF \U0001F6B2 'S FOR DIVVY")
+st.title("THIS WEP APP PREDICTS THE AVAILABILITY OF \U0001F6B2 'S FOR DIVVY OVER THE NEXT FIVE DAYS")
 
 st.header("Select the date \U0001F4C5 and time \U0001F551 to explore Divvy's stations traffic")
 
