@@ -8,7 +8,6 @@ import pandas as pd
 import datetime
 from streamlit_folium import folium_static
 import seaborn as sns
-from statsmodels.tsa.seasonal import seasonal_decompose
 
 st.set_page_config(page_title="Factors influencing bikes traffic",  layout="centered")
 
