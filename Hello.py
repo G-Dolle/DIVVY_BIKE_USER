@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import datetime
-import folium
-from streamlit_folium import folium_static
+
 
 
 st.set_page_config(
