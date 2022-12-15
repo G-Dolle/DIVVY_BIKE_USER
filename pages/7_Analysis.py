@@ -12,8 +12,6 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 
 st.set_page_config(page_title="Factors influencing bikes traffic",  layout="centered")
 
-st.sidebar.header("Analysis")
-
 st.markdown("# What drives bikes traffic?")
 
 st.markdown("## Weather")

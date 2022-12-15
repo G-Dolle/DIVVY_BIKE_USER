@@ -2,9 +2,7 @@ import streamlit as st
 from streamlit_folium import folium_static
 from PIL import Image
 
-st.set_page_config(page_title="Team",  layout="wide")
-
-st.sidebar.header("Team")
+st.set_page_config(page_title="Team", layout="centered", initial_sidebar_state="auto")
 
 st.markdown("# Our Team")
 
