@@ -65,7 +65,7 @@ fig=px.scatter_mapbox(stations,
                       color="availability",
                       size="traffic",
                       hover_data=["name","departures","arrivals"],
-                      color_discrete_sequence=px.colors.qualitative.Bold,
+                      color_discrete_sequence=px.colors.qualitative.Alphabet,
                       zoom=10,
                       height=770)
 st.plotly_chart(fig)
