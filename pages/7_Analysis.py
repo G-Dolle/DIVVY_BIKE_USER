@@ -33,6 +33,7 @@ avg_weather_df["date"]= pd.to_datetime(avg_weather_df["date"])
 
 rides_df_daily = rides_df_daily.merge(avg_weather_df, on="date", how="left")
 
+rides_df_daily["nb_rides"] = rides_df_daily["nb_rides"]/1000
 
 hour_w_agg_df = pd.read_csv("raw_data/hourly_avg_rides_2021.csv")
 
