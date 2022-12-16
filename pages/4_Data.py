@@ -1,5 +1,4 @@
 import streamlit as st
-from st_aggrid import AgGrid
 
 st.set_page_config(
     page_title="Data",
