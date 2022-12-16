@@ -65,7 +65,7 @@ fig=px.scatter_mapbox(stations,
                       color="availability",
                       size="traffic",
                       hover_data=["name","departures","arrivals"],
-                      color_discrete_sequence=px.colors.qualitative.G10,
+                      color_discrete_sequence=px.colors.qualitative.Bold,
                       zoom=10,
                       height=770)
 st.plotly_chart(fig)
@@ -78,7 +78,7 @@ fig=px.scatter_mapbox(summer_stations,
                       color="availability",
                       size="traffic",
                       hover_data=["name","departures","arrivals"],
-                      color_discrete_sequence=px.colors.qualitative.G10,
+                      color_discrete_sequence=px.colors.qualitative.Bold,
                       zoom=10,
                       height=770)
 st.plotly_chart(fig)
