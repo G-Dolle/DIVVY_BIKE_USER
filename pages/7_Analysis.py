@@ -94,7 +94,7 @@ st.pyplot(fig0)
 
 #weather_metric_choice= ['temp', 'pressure', 'humidity', 'wind_speed', 'wind_deg','clouds_all']
 
- st.markdown("***")
+st.markdown("***")
 
 st.markdown("## Temporality")
 
@@ -155,7 +155,9 @@ ax4.set_xticks(range(0,24,2))
 ax4.legend()
 
 st.pyplot(fig3)
- st.markdown("***")
+
+st.markdown("***")
+
 st.markdown("## Spatial disparities")
 
 st.markdown("Bike stations' density differs across Chicago. Some areas are likely to feature more bikes' departures or arrivals because of this, but also because of idiosyncrasies such as a concentration of business premises, bars and restaurants, which yield specific patterns for bikes traffic")
