@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="auto")
 
 #Title of the app
-st.title("THIS WEP APP PREDICTS THE AVAILABILITY OF \U0001F6B2 'S FOR DIVVY OVER THE NEXT FIVE DAYS")
+st.title("THIS WEB APP PREDICTS THE AVAILABILITY OF \U0001F6B2 'S FOR DIVVY OVER THE NEXT FIVE DAYS")
 
 st.header("Select the date \U0001F4C5 and time \U0001F551 to explore Divvy's stations traffic")
 
